@@ -67,6 +67,7 @@ function keyPressed() {
     // keycode is 'w'
     leftShip.isUp = true;
     leftShip.isDown = false;
+   touches = [];
   } else if (keyCode == 83) {
     // keycode is 's'
     leftShip.isDown = true;
@@ -76,14 +77,16 @@ function keyPressed() {
  
  
 function keyReleased() {
-    if (keyCode == UP_ARROW) {
+    if (keyCode == UP_ARROW || touches.length > 0) {
     rightShip.isUp = false;
+    touches = [];
   } else if (keyCode == DOWN_ARROW) {
     rightShip.isDown = false;
   }
    
-  if (keyCode == 87) {
+  if (keyCode == 87 || touches.length > 0) {
     leftShip.isUp = false;
+    touches = [];
   } else if (keyCode == 83) {
     leftShip.isDown = false;
   }
